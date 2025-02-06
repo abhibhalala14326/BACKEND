@@ -4,7 +4,7 @@ import GroupeTable from "../DataBase/GropeSchema"
 
 
 
-export const getAllGroup = async (req , res) =>
+export const getAllGroup = async(req , res) =>
 {
     try {
         let group = await GroupeTable.find()
