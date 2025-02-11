@@ -11,7 +11,8 @@ const dbname: string | undefined = process.env.MONGO_DB_DATABASE;
 const hostname: string = "127.0.0.1";
 
 const app: Application = express();
-
+app.use(express.json())
+// app.use(express.urlencoded({extended:false}))
 app.use('/group' ,groupRouter)
 
 if (port) {

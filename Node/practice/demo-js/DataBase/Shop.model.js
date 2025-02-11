@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 
 const Shopschema = new mongoose.Schema({
-    name:{type:String,require:true , uppecase:true , },
+    name: { type: String, require: true, uppercase:true , },
     category:{type:String , require:true},
     users:[{
         type: Schema.Types.ObjectId,
