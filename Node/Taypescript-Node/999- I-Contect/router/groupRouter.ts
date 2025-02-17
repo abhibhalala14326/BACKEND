@@ -18,4 +18,9 @@ await groupController.createGroup(req , res)
 } )
 
 
+groupRouter.get('/:groupId', async (req: Request, res: Response) => {
+    await groupController.getGroup(req, res)
+})
+
+
 export default groupRouter;

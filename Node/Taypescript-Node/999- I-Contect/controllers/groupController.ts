@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { IGrupe } from "../model/IGroup";
 import groupTables from "../DataBase/GrupeShema";
+import mongoose, { mongo } from "mongoose";
 
 
 export const getAllGroup = async (req: Request, res: Response) => {
@@ -36,4 +37,23 @@ export const createGroup = async (req: Request, res: Response) => {
 
     }
 
+}
+
+
+
+export const getGroup = async (req: Request, res: Response) => {
+   let {groupId} = req.params;
+
+   const group  =  new mongoose.Types.ObjectId(groupId)
+
+    let theGroup: IGrupe | null | undefined = await groupTables.findById(group)
+
+   if (!theGroup) {
+    res.status(400).json({
+        data:null,
+        msg:"id is not found"
+    })
+    
+   }
+   return res.json(theGroup)
 }

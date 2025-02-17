@@ -19,3 +19,8 @@ groupRouter.post('/', [
     })
 
 export default groupRouter;
+
+
+groupRouter.get('/:groupId', async (req, res) => {
+    await groupController.getGroup(req, res)
+})

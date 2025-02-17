@@ -2,6 +2,8 @@ import express, { Request, Response, Application } from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import groupRouter from "./router/groupRouter";
+import userRouter from "./router/userRouter";
+import contactRouter from "./router/contactRouter";
 
 dotenv.config({ path: "./.env" });
 
@@ -12,8 +14,12 @@ const hostname: string = "127.0.0.1";
 
 const app: Application = express();
 app.use(express.json())
-// app.use(express.urlencoded({extended:false}))
+app.use(express.urlencoded({extended:true}))
+
+
 app.use('/group' ,groupRouter)
+app.use('/user' , userRouter)
+app.use('/contact' , contactRouter)
 
 if (port) {
   app.listen(port, () => {
